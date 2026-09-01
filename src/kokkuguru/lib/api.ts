@@ -50,12 +50,7 @@ export class ApiError extends Error {
 
 // Kahe build-režiimi tugi: Next.js (process.env) ja Vite/GitHub Pages (import.meta.env).
 // Brauseris `process` ei eksisteeri — kontrollime enne.
-const API_BASE =
-  (typeof globalThis !== "undefined" &&
-    (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env
-      ?.NEXT_PUBLIC_RECIPE_API_BASE) ||
-  (import.meta.env.VITE_RECIPE_API_BASE as string | undefined) ||
-  "https://recipeapi.io/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_RECIPE_API_BASE || "https://recipeapi.io/api/v1";
 
 async function apiFetch<T>(
   path: string,
