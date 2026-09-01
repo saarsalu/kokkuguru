@@ -3,7 +3,7 @@
   "framework": "nextjs",
   "regions": ["fra1"],
   "functions": {
-    "api/facebook/audio": {
+    "src/app/api/facebook/audio/route.ts": {
       "maxDuration": 300
     }
   }
